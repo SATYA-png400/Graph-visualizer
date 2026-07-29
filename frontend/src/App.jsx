@@ -109,7 +109,8 @@ function App() {
 
   const saveGraph = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/graphs', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${API_URL}/api/graphs`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
